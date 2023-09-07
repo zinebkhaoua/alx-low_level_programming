@@ -1,6 +1,6 @@
-#include  <stdio.h>
+#include <stdio.h>
 /**
- * main - Print aline with using a printf functions
+ * main - Print a line with using printf functions
  * Return: 0 (Success)
  */
 int main(void)
