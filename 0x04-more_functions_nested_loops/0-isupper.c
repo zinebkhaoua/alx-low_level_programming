@@ -1,14 +1,18 @@
-#include"main.h"
+#include "main.h"
 /**
- *_isupper - check if a letter is upper
- *@x: the number to be checker
- *Return: 1 for uper letter or 0 of any else
+ * _isupper - writes the character c to stdout
+ * @c: The character to check
+ * Return: On success 1.
+ * On error, 0 is returned.
  */
-int _isupper(int x);
+int _isupper(int c)
 {
-if (x >= 65 && x <= 90)
+if (c >= 65 && c <= 90)
 {
 return (1);
 }
+else
+{
 return (0);
+}
 }
