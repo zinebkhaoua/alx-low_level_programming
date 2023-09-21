@@ -24,4 +24,3 @@ j++;
 
 return (dest);
 }
-
