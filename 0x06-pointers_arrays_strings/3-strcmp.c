@@ -19,8 +19,9 @@ return (s1[i] - s2[i]);
 }
 i++;
 }
-/*If we reach here, either one or both strings have reached '\0'.
- *Compare the lengths to determine the result.
+/*
+ *if we reach here, either one or both strings have reached '\0'.
+ *compare the lengths to determine the result.
  */
 if (s1[i] == '\0' && s2[i] == '\0')
 {
