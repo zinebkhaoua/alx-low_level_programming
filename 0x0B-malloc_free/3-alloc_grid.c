@@ -1,55 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h> /* Include the necessary header file for malloc and free */
+#include <stdlib.h>
 
 /**
- * alloc_grid - returns a pointer to a 2-dimensional array of integers.
- * @width: int
- * @height: int
- * Return: 2D array
+ * alloc_grid - Creates a 2-dimensional grid of integers.
+ * @width: The width of the grid.
+ * @height: The height of the grid.
+ *
+ * Return: A pointer to the allocated grid, or NULL on failure.
  */
 int **alloc_grid(int width, int height)
 {
-int **tab, i, j;
+	int **grid;
+	int i, j;
 
-/* Check for invalid input or malloc failure */
-if (width <= 0 || height <= 0)
-{
-return (NULL);
+	if (width <= 0 || height <= 0)
+		return (NULL);
+
+	grid = malloc(sizeof(int *) * height);
+
+	if (grid == NULL)
+		return (NULL);
+
+	for (i = 0; i < height; i++)
+	{
+		grid[i] = malloc(sizeof(int) * width);
+		if (grid[i] == NULL)
+		{
+			for (j = 0; j < i; j++)
+				free(grid[j]);
+			free(grid);
+			return (NULL);
+		}
+
+		for (j = 0; j < width; j++)
+			grid[i][j] = 0;
+	}
+
+	return (grid);
 }
-
-/* Allocate memory for the array of pointers to rows */
-tab = (int **)malloc(sizeof(int *) * height);
-
-/* Check for malloc failure */
-if (tab == NULL)
-{
-return (NULL);
-}
-
-/* Allocate memory for each row and initialize elements to 0 */
-for (i = 0; i < height; i++)
-{
-tab[i] = (int *)malloc(sizeof(int) * width);
-
-/* Check for malloc failure */
-if (tab[i] == NULL
-{
-/* Free previously allocated memory */
-for (j = 0; j < i; j++)
-{
-free(tab[j]);
-}
-free(tab);
-return (NULL);
-}
-
-/* Initialize elements to 0 */
-for (j = 0; j < width; j++)
-{
-tab[i][j] = 0;
-}
-}
-
-return (tab);
-}
-
